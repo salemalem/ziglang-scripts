@@ -1,4 +1,6 @@
-const debugPrint = @import("std").debug.print;
+const std = @import("std");
+const debugPrint = std.debug.print;
+const math = std.math;
 
 pub fn print(number: f64) void {
   debugPrint(
@@ -38,6 +40,14 @@ pub fn calculate_final_velocity(v0: f64, acceleration: f64, time: f64) f64 {
   return v1;
 }
 
+// no time
+pub fn calculate_final_velocity_square(v0: f64, acceleration: f64, displacement: f64) f64 {
+  const v1 = math.pow(v0, 2) + 2 * acceleration * displacement;
+  print(math.sqrt(v1));
+  return v1;
+}
+
 pub fn main() void {
-  print(calculate_final_velocity(0, 10, 5));
+  print(math.pow(10, 10));
+  // print(calculate_final_velocity_square(15, 10, 5));
 }
